@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Login Form -->
+    <div class="box" id="login-box">
+      <h1>🔐 Login</h1>
+      <form action="login.php" method="POST">
+        <input type="text" name="uname" placeholder="Enter Name" required>
+        <input type="password" name="upswd" placeholder="Enter password" required>
+        <br><br>
+        <input type="submit" value="Login">
+        <br><br>
+        <a href="#" onclick="toggleForm('register')">Don't have an account? Register</a>
+      </form>
+    </div>
+
+    <!-- Register Form -->
+    <div class="box" id="register-box" style="display: none;">
+      <h1>📝 Register</h1>
+      <form action="register.php" method="POST">
+        <input type="text" name="uname" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Enter Email" required>
+        <input type="password" name="upswd1" placeholder="Password" required>
+        <input type="password" name="upswd2" placeholder="Confirm Password" required>
+        <br>
+        <input type="submit" value="Register">
+        <br><br>
+        <a href="#" onclick="toggleForm('login')">Already have an account? Login</a>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Toggle Logic -->
+  <script>
+    function toggleForm(formType) {
+      const loginBox = document.getElementById("login-box");
+      const registerBox = document.getElementById("register-box");
+
+      if (formType === 'register') {
+        loginBox.style.display = "none";
+        registerBox.style.display = "block";
+      } else {
+        loginBox.style.display = "block";
+        registerBox.style.display = "none";
+      }
+    }
+    function func(){
+        var uname = document.getElementById("uname").value;
+        var upswd =document.getElementById("upswd").value;
+        if(uname=='?'&& upswd=='?'){
+            alert(" login successfull!")
+            window.location.assign("sp.html");
+        }
+        else{
+            alert("wrong entry invalid");
+        }
+    }
+  </script>
+
+</body>
+</html>
